@@ -1,0 +1,23 @@
+{
+    "twiggy.framework": "ignore",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#e9d8a6",
+        "activityBar.background": "#e9d8a6",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#26997c",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#e9d8a6",
+        "statusBar.background": "#dfc67d",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#d5b454",
+        "statusBarItem.remoteBackground": "#dfc67d",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#dfc67d",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#dfc67d99",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.remoteColor": "#dfc67d"
+}

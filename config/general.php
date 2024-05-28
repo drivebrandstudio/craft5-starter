@@ -10,8 +10,8 @@
 
 use craft\helpers\App;
 
-$isDev = App::env('ENVIRONMENT') === 'dev';
-$isProd = App::env('ENVIRONMENT') === 'production';
+$isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
+$isProd = App::env('CRAFT_CRAFT_ENVIRONMENT') === 'production';
 
 return [
   // Global settings
@@ -26,7 +26,7 @@ return [
       'cpTrigger' => 'access',
 
       // The secure key Craft will use for hashing and encrypting data
-      'securityKey' => App::env('SECURITY_KEY'),
+      'securityKey' => App::env('CRAFT_SECURITY_KEY'),
 
       'disallowRobots' => true,
       // prevent /cpresources/ path showing up on the front end
@@ -47,7 +47,7 @@ return [
       // '@rootPath' =>App::env('SITE_PATH'),
 
       'aliases' => array(
-        'environment' =>App::env('ENVIRONMENT'),
+        'environment' =>App::env('CRAFT_ENVIRONMENT'),
         'basePath' =>App::env('SITE_PATH'),
         'baseUrl'  =>App::env('DEFAULT_SITE_URL'),
     ),

@@ -9,6 +9,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload stylesheet"
+      href="{{ craft.vite.asset('src/css/app.css') }}"
+      as="style" />
+    {{ craft.vite.script('src/js/app.ts') }}
 
   {#
     google fonts
@@ -87,7 +91,6 @@
   </footer>
 
   <!-- vendor scripts -->
-  <script src="{{ rev('/js/plyr.min.js') }}"></script>
   <script src="{{ rev('/js/scripts.combined.js') }}"></script>
 
   {% block pageJs %}{% endblock %}

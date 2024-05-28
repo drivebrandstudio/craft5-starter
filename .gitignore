@@ -4,10 +4,10 @@
 /vendor
 .DS_Store
 /node_modules
-/public/imager/
+/web/imager/
 /translations/
-/public/uploads/
-/public/guide/
+/web/uploads/
+/web/guide/
 *.sql
 *.bak
 /web/assets/cpresources/

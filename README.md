@@ -15,22 +15,30 @@ To install with Craft 3 version run `composer create-project createsean/craft-st
 
 ## Table of Contents
 
-  * [Local Development](#local-development)
-  * [To Do](#to-do)
-  * [Build Process](#build-process)
-  * [Tailwind](#tailwind)
-  * [Accessibility](#accessibility)
-  * [Dark Mode](#dark-mode)
-  * [Fragments](#fragments)
-  * [Floated Labels](#floated-labels)
-  * [Picture Element](#picture-elements)
-  * [Craft Plugins](#craft-plugins)
-  * [Typogrify](#typogrify)
-  * [Sprig](#sprig)
-  * [contact Form](#contact-form)
-  * [Style Guide](#styleguide)
-  * [Content](#content)
-  * [Composer nuke](#composer-nuke)
+- [Craft CMS Starter Project (Boilerplate)](#craft-cms-starter-project-boilerplate)
+    - [Install Craft 5 version](#install-craft-5-version)
+    - [Install Craft 4 version](#install-craft-4-version)
+    - [Install Craft 3 version](#install-craft-3-version)
+  - [Table of Contents](#table-of-contents)
+  - [Local Development](#local-development)
+  - [To Do](#to-do)
+  - [Build Process](#build-process)
+    - [Production](#production)
+  - [Tailwind](#tailwind)
+  - [Accessibility](#accessibility)
+  - [Dark Mode](#dark-mode)
+  - [Main Navigation](#main-navigation)
+  - [Fragments](#fragments)
+  - [Floated Labels](#floated-labels)
+  - [Picture elements](#picture-elements)
+  - [Craft Plugins](#craft-plugins)
+  - [Typogrify](#typogrify)
+  - [Sprig](#sprig)
+  - [Contact Form](#contact-form)
+  - [Styleguide](#styleguide)
+  - [Content](#content)
+    - [Hero Component](#hero-component)
+  - [Composer nuke](#composer-nuke)
 
 ---
 
@@ -76,14 +84,14 @@ Password: `letmein`
 
 Tailwind is compiled using [Tailwind-jit](https://github.com/tailwindlabs/tailwindcss-jit) which is much faster than previously. it also ensures a small file size during `watch` builds. However I still recommend running the [production](#production) task before deployment.
 
-Images and svg files should be copied to src/img and src/img/svg. When running `npm run production` these will then be optimized and copied to /public/assets/images and /public/assets/images/svg respectively (if you don't want to run production, copy files to both locations)
+Images and svg files should be copied to src/img and src/img/svg. When running `npm run production` these will then be optimized and copied to /web/assets/images and /web/assets/images/svg respectively (if you don't want to run production, copy files to both locations)
 
 You will need [NodeJS](https://nodejs.org/en/) version 14+. YOu can either update to 14+ or if you need multiple versions of node install the Node Version Manager [Windows](https://github.com/nvm-sh/nvm) / [Mac](https://github.com/coreybutle/nvm-windows).
 
 1. run `npm install` or `npm i`
 
 Add any scripts or css you need by running `npm install <package-name> --save-dev`
-You can then have the required javascript or css files combined and minimized by adding paths to the correct files in `webpack.mix.js` on line 64-70(js) or line 74-78(css). when you run `npx mix watch` everything will be combined and output to `/public/assets/js` or `public/assets/css`
+You can then have the required javascript or css files combined and minimized by adding paths to the correct files in `webpack.mix.js` on line 64-70(js) or line 74-78(css). when you run `npx mix watch` everything will be combined and output to `/web/assets/js` or `web/assets/css`
 
 2. update the banner text that gets prepended to css on lines 75-85 of `webpack.mix.js` with your project info
 3. in `webpack.mix.js` update line 12  `const baseUrl = 'https://craft-starter.ddev.site'` with your local domain
@@ -115,7 +123,7 @@ You can then have the required javascript or css files combined and minimized by
     2. you may need to create the tmp/certs directory in your OS users directory
     3. You should only need to do this for 1 project and then everything should work on multiple projects.
 
-5. Tailwind Config Viewer is set up and uses the following commands. `npm run tw-config-viewer` will load up the viewer at localhost:4000 and `npm run export-tw-config` will export the viewer to `public/tw-viewer`
+5. Tailwind Config Viewer is set up and uses the following commands. `npm run tw-config-viewer` will load up the viewer at localhost:4000 and `npm run export-tw-config` will export the viewer to `web/tw-viewer`
 
 6. Tailwind Container Queries plugin is installed. See the (documentation)[https://github.com/tailwindlabs/tailwindcss-container-queries]
 
@@ -131,7 +139,7 @@ Add a `@container` class to the a parent div and then use prefixes to target the
 
 ### Production
 
-when you are ready to deploy your code run `npx mix -p` to optimize images in `/src/img/` optimized images will be output in `/public/assets/images`
+when you are ready to deploy your code run `npx mix -p` to optimize images in `/src/img/` optimized images will be output in `/web/assets/images`
 
 this will also run the critical css task which you can configure at line 143 by adding in an array of urls and templates
 
