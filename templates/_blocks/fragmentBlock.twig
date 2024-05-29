@@ -1,8 +1,0 @@
-{# get fragment entry #}
-{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
-
-{% set entry = block.fragment.one() %}
-
-{% for block in entry.contentBuilder.all() %}
-  {% include "_blocks/" ~ block.type %}
-{% endfor %}

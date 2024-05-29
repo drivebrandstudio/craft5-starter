@@ -24,6 +24,7 @@ return [
 
       // Control Panel trigger word
       'cpTrigger' => 'admin',
+      "headlessMode" => true,
 
       // The secure key Craft will use for hashing and encrypting data
       'securityKey' => App::env('CRAFT_SECURITY_KEY'),
