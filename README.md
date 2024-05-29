@@ -21,7 +21,6 @@ To install with Craft 3 version run `composer create-project createsean/craft-st
     - [Install Craft 3 version](#install-craft-3-version)
   - [Table of Contents](#table-of-contents)
   - [Local Development](#local-development)
-  - [To Do](#to-do)
   - [Build Process](#build-process)
     - [Production](#production)
   - [Tailwind](#tailwind)
@@ -46,40 +45,21 @@ To install with Craft 3 version run `composer create-project createsean/craft-st
 
 Set up your local development, if you are using DDev for local development then everything should just work for you. If you are **NOT** using DDEV for local development skip this part and set up local development however you normally do (Valet, Mamp, etc), be sure to import the seed database `db.sql.gz`
 
-1. open .ddev/config.yaml and update line 15 to use the port you want. Must be unique to all ddev sites on your local computer
-2. open .ddev/config.yaml and update php version (line 4) and mysql_version (line 11) if needed
-3. update dotenv variables, especially SITE_NAME_EN, SITE_NAME_FR, PRIMARY_SITE_URL, SITE_PATH, ASSET_BASE_URL
-4. update email settings of dotenv for staging/production. Current settings work with mailhog in ddev. To open mailhog run `ddev launch -m`
-5. Run `ddev start` and the site should start up.
-6. run `ddev import-db --file=db.sql.gz` this will import the seeder database with settings, channels, etc.
-7. run `php craft setup/security-key`
-8. run `php craft setup/app-id`
-9. run `ddev launch access` will open the Craft CP
-10. To access the db from your host machine run `ddev describe` and you'll get the connection details needed
+1. open .ddev/config.yaml and update php version (line 4) and mysql_version (line 11) if needed
+2. update dotenv variables, especially SITE_NAME_EN, SITE_NAME_FR, PRIMARY_SITE_URL, SITE_PATH, ASSET_BASE_URL
+3. update email settings of dotenv for staging/production. Current settings work with mailhog in ddev. To open mailhog run `ddev launch -m`
+4. Run `ddev start` and the site should start up.
+5. run `ddev import-db --file=db.sql.gz` this will import the seeder database with settings, channels, etc.
+6. run `php craft setup/security-key`
+7. run `php craft setup/app-id`
+8. run `ddev launch admin` will open the Craft CP
+9.  To access the db from your host machine run `ddev describe` and you'll get the connection details needed
 
 Login: `cc_admin`
 Password: `letmein`
 
 10. after logging in be sure to **update your password**
-
-## To Do
--   [ ] Ensure accessibility passes with default templates - aria labels, alt text etc.
--   [x] Set up site search.
--   [x] Contact Form.
--   [X] Move AlpineJs and plugins from CDN to compiled build process.
--   [X] Add content builder with common content types.
--   [X] Contact page
--   [ ] About/Team page
--   [x] Add hero with different options i.e. slider, no slider, no image just title.
--   [x] Get news categories working using sprig.
--   [ ] Add news _entry template.
--   [x] Add news listing with sprig pagination.
--   [x] Add notice bar option.
--   [x] Add 404 template.
--   [x] Add installation instructions.
--   [ ] Replace matrix content builder with CKEditor longform
--   [ ] update templates to use `.eagerly()` where possible
-
+    
 ## Build Process
 
 Tailwind is compiled using [Tailwind-jit](https://github.com/tailwindlabs/tailwindcss-jit) which is much faster than previously. it also ensures a small file size during `watch` builds. However I still recommend running the [production](#production) task before deployment.
@@ -90,42 +70,10 @@ You will need [NodeJS](https://nodejs.org/en/) version 14+. YOu can either updat
 
 1. run `npm install` or `npm i`
 
-Add any scripts or css you need by running `npm install <package-name> --save-dev`
-You can then have the required javascript or css files combined and minimized by adding paths to the correct files in `webpack.mix.js` on line 64-70(js) or line 74-78(css). when you run `npx mix watch` everything will be combined and output to `/web/assets/js` or `web/assets/css`
 
-2. update the banner text that gets prepended to css on lines 75-85 of `webpack.mix.js` with your project info
-3. in `webpack.mix.js` update line 12  `const baseUrl = 'https://craft-starter.ddev.site'` with your local domain
+2. Tailwind Config Viewer is set up and uses the following commands. `npm run tw-config-viewer` will load up the viewer at localhost:4000 and `npm run export-tw-config` will export the viewer to `web/tw-viewer`
 
-```javascript
-  .banner({
-    banner: (function () {
-        return [
-            '/**!',
-            ' * @project        Craft Starter Website',
-            ' * @author         Sean Smith, Caffeine Creations',
-            ' * @Copyright      Copyright (c) ' + moment().format("YYYY") + ', Caffeine Creations',
-            ' *',
-            ' */',
-            '',
-        ].join('\n');
-    })(),
-    raw: true,
-  })
-```
-
-4. run `npx mix watch` to have laravel mix compile tailwind, set up browser sync. and combine scripts.
-    1. To get your SSL working with browsersync and DDEV follow these instructions
-    * SSL-enabled for DDev. You have to copy the SSL cert to somewhere outside of Docker first. Run this at your project root [Stack Overflow](https://stackoverflow.com/questions/59730898/cant-connect-browsersync-with-ddev-nginx-server-because-ssl-error):
-
-    ```
-    docker cp ddev-router:/etc/nginx/certs ~/tmp/certs
-    ```
-    2. you may need to create the tmp/certs directory in your OS users directory
-    3. You should only need to do this for 1 project and then everything should work on multiple projects.
-
-5. Tailwind Config Viewer is set up and uses the following commands. `npm run tw-config-viewer` will load up the viewer at localhost:4000 and `npm run export-tw-config` will export the viewer to `web/tw-viewer`
-
-6. Tailwind Container Queries plugin is installed. See the (documentation)[https://github.com/tailwindlabs/tailwindcss-container-queries]
+3. Tailwind Container Queries plugin is installed. See the (documentation)[https://github.com/tailwindlabs/tailwindcss-container-queries]
 
 Add a `@container` class to the a parent div and then use prefixes to target the container size like this `@lg:bg-pink-400`. Matrix blocks by default have a `@container` so it is easy to use containers out of the box.
 
