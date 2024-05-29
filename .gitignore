@@ -11,3 +11,5 @@
 *.sql
 *.bak
 /web/assets/cpresources/
+
+/.vscode
