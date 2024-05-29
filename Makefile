@@ -17,7 +17,7 @@ setup:
 		$(filter-out $@,$(MAKECMDGOALS))
 	ddev exec php craft install \
 		$(filter-out $@,$(MAKECMDGOALS))
-	ddev exec php craft plugin/install redactor
+
 	ddev exec php craft plugin/install vite
 	ddev exec npm run build
 	ddev exec npm run dev
