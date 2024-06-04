@@ -5,7 +5,8 @@
 
 {# reveal blocks when they are 200px into the viewport #}
 <section
-  x-data="{ isVisible: false }"
+  x-data="{ isVisible: true }"
+  {# x-data="{ isVisible: false }" #}
   x-intersect.margin.-200px.once="isVisible = true"
   x-transition
   :class="isVisible ? 'opacity-100' : 'opacity-0'"
