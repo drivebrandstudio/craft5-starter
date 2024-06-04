@@ -1,13 +1,15 @@
-{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{{ craft.app.config.general.devMode
+  ? ('<!-- Template: ' ~ _self ~ ' -->')|raw }}
 
-<div class="bg-gray-200">
-  {# hero content #}
-  <div class="py-16">
-    <div class="container relative z-10 h-full">
-      <div class="flex flex-col w-full lg:w-1/2 h-full justify-center gap-8">
-        <h1>{{ block.heroTitle ?? entry.title }}</h1>
-      </div><!-- /.flex flex-col lg:flex-row -->
-    </div><!-- /.container -->
+<section>
+  <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
+    <div class="flex flex-col w-full mb-12 text-center">
+      <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-neutral-600 md:text-5xl lg:text-6xl lg:max-w-7xl">
+        {{ block.heroTitle ?? entry.title }}
+      </h1>
+      <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-center text-gray-500">
+       {{ block.copy }}
+      </p>
+    </div>
   </div>
-  {# end hero content #}
-</div>
+</section>

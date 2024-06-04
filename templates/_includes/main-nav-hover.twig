@@ -47,9 +47,9 @@
       :class="{'flex scrollbar pb-20': open, 'hidden': !open}">
       <ul class="flex flex-col flex-wrap pl-8 m-0 lg:pl-0 lg:items-center lg:flex-row ">
 
-        {% set pages = craft.entries.section('pages').hideFromNav('0').level('<='~4).all() %}
+        {% set pages = craft.entries.section('pages').level('<='~4).all() %}
 
-        {% for navItem in craft.entries.section('pages').hideFromNav('0').level('1').all() %}
+        {% for navItem in craft.entries.section('pages').level('1').all() %}
           {# Hover Nav parent #}
           <li class="relative block py-2 mr-1 group lg:px-0 xl:px-0">
 
@@ -80,7 +80,7 @@
                       </a>
                     </div>
 
-                    {% for entry in craft.entries.section('pages').descendantOf(navItem).hideFromNav('0').level('2').all() %}
+                    {% for entry in craft.entries.section('pages').descendantOf(navItem).level('2').all() %}
                       <div
                         role="listitem"
                         class="border-b border-grayBrand border-opacity-[0.2] leading-[1.3rem]">

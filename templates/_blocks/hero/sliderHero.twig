@@ -1,11 +1,11 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 
-<section class="w-full py-0 swiper hero-swiper">
+<div class="swiper mySwiper">
 
   <div class="swiper-wrapper">
     {% for row in block.slides.all() %}
 
-      <div class="relative swiper-slide" data-foo>
+      <div class="swiper-slide" data-foo>
 
         {# image #}
         <div class="w-full ">
@@ -80,21 +80,7 @@
 
   </div><!-- /.swiper-wrapper -->
 
-  <div class="container">
-    <div class="relative w-full lg:w-1/2">
-      {# <div class="relative swiper-pagination home-pagination lg:absolute"></div> #}
-      <div class="relative lg:absolute left-0 bottom-[10px] lg:bottom-0 flex flex-row space-x-4 w-full mb-4">
-
-        {# prev #}
-        <div class="static swiper-button-prev">{{ svg('@webroot/assets/images/svg/arrow-right-white.svg')|attr({class:'w-10 h-10 inline-block rotate-180' }) }}</div>
-
-        {# next #}
-        <div class="static swiper-button-next">{{ svg('@webroot/assets/images/svg/arrow-right-white.svg')|attr({class:'w-10 h-10 inline-block' }) }}</div>
-
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 
 {% css %}

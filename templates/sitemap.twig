@@ -15,7 +15,7 @@ home page template is at pages/_entry-type/home
 
     <ul class="list-disc font-proxima">
       {# pages channel #}
-      {% set pages = craft.entries.section('pages').hideFromNav('0').collect() %}
+      {% set pages = craft.entries.section('pages').collect() %}
       {% nav entry in pages %}
         <li class="mb-1 {{ entry.level =='1' ? 'text-18 mt-4':'text-base' }}">
           <a href="{{ entry.url }}" class="hover:underline underline-offset-2">{{ entry.title }}</a>
