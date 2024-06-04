@@ -1,90 +1,99 @@
-{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{{ craft.app.config.general.devMode
+  ? ('<!-- Template: ' ~ _self ~ ' -->')|raw }}
 
 <div class="swiper mySwiper">
-
   <div class="swiper-wrapper">
     {% for row in block.slides.all() %}
-
       <div class="swiper-slide" data-foo>
-
         {# image #}
-        <div class="w-full ">
+        <div class="w-full">
           {% set heroImage = row.image.one() %}
-          {{ include('_includes/responsiveImage', {
-            image: heroImage,
-            transforms: [
+          {{
+            include(
+              '_includes/responsiveImage',
               {
-                mq:'(max-width: 767.9px)',
-                crop: {
-                  width: 767,
-                  height:300,
-                  mode: 'crop',
-                  quality: 80,
+                image: heroImage,
+                transforms: [
+                  {
+                    mq: '(max-width: 767.9px)',
+                    crop: {
+                      width: 767,
+                      height: 300,
+                      mode: 'crop',
+                      quality: 80
+                    }
+                  },
+                  {
+                    mq: '(max-width: 1199px)',
+                    crop: {
+                      width: 1200,
+                      height: 375,
+                      mode: 'crop',
+                      quality: 80
+                    }
+                  },
+                  {
+                    mq: '(min-width: 1200px)',
+                    crop: {
+                      width: 1920,
+                      height: 450,
+                      mode: 'crop',
+                      quality: 80
+                    }
+                  }
+                ],
+                attributes: {
+                  alt: image.altText ?? image.title ?? null,
+                  class: 'object-cover z-0 mx-auto',
+                  loading: 'lazy',
+                  dataAttributes: ''
                 }
               },
-              {
-                mq:'(max-width: 1199px)',
-                crop: {
-                  width: 1200,
-                  height:375,
-                  mode: 'crop',
-                  quality: 80,
-                }
-              },
-              {
-                mq:'(min-width: 1200px)',
-                crop: {
-                  width: 1920,
-                  height:450,
-                  mode: 'crop',
-                  quality: 80,
-                }
-              },
-            ],
-            attributes: {
-              alt: image.altText ?? image.title ?? null,
-              class: 'object-cover z-0 mx-auto',
-              loading: 'lazy',
-              dataAttributes: ''
-            },
-          }, with_context = false) }}
+              with_context = false
+            )
+          }}
 
           {# slide copy #}
           <div class="absolute top-0 left-0 z-10 w-full h-full py-8">
             <div class="container relative z-10 h-full">
               <div class="flex flex-col justify-center w-full h-full gap-8 lg:w-1/2">
                 {% if row.slideTitle|length %}
-                  <h1>{{ row.slideTitle }}</h1>
+                  <h1>
+                    {{ row.slideTitle }}
+                  </h1>
                 {% endif %}
                 {% if row.copy|length %}
                   <div class="prose prose-lg">
                     {{ row.copy }}
-                  </div><!-- /.prose -->
+                  </div>
+                  <!-- /.prose -->
                 {% endif %}
 
-                {{ row.button.getLink({
-                  class: 'btn self-start',
-                }) }}
-
-              </div><!-- /.flex flex-col lg:flex-row -->
-            </div><!-- /.container -->
+                {{
+                  row.button.getLink({
+                    class: 'btn self-start'
+                  })
+                }}
+              </div>
+              <!-- /.flex flex-col lg:flex-row -->
+            </div>
+            <!-- /.container -->
           </div>
           {# end slide copy #}
-
-        </div><!-- /.w-full bl-black -->
+        </div>
+        <!-- /.w-full bl-black -->
 
         <!-- /.absolute -->
-      </div><!-- /.slide -->
-
+      </div>
+      <!-- /.slide -->
     {% endfor %}
-
-  </div><!-- /.swiper-wrapper -->
-
+    </div>
+    <!-- /.swiper-wrapper -->
+    <div class="swiper-scrollbar"></div>
 </div>
 
-
 {% css %}
-  {# .swiper-button-prev, .swiper-button-next {
+{# .swiper-button-prev, .swiper-button-next {
     width:2.5rem;
   }
   .swiper-button-next:after {
@@ -95,15 +104,10 @@
   } #}
 {% endcss %}
 
-
 {# javascript #}
 {% js %}
-  {% include "_javascript/hero-swiper.js" %}
+{% include '_javascript/hero-swiper.js' %}
 {% endjs %}
-
-
-
-
 
 {# <div class="bg-gray-200">
 

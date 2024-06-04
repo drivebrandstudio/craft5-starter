@@ -1,1 +1,6 @@
-var swiper = new Swiper(".mySwiper", {});
+var swiper = new Swiper(".mySwiper", {
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    hide: true,
+  },
+});
