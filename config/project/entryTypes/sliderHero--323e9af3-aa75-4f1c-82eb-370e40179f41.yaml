@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 8c583e9a-a56d-486d-8550-e7eae61c8088
+            fieldUid: 8c583e9a-a56d-486d-8550-e7eae61c8088 # Hero - Slider Hero - Slides
             handle: null
             includeInCards: false
             instructions: null

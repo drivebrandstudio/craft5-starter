@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 7bf7da79-8f7d-4a1b-8129-121b24c0d99b
+            fieldUid: 7bf7da79-8f7d-4a1b-8129-121b24c0d99b # Hero - Standard Hero - Image
             handle: image
             includeInCards: false
             instructions: null

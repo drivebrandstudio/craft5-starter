@@ -1,6 +1,6 @@
 color: null
 fieldLayouts:
-  dc49b215-dcb8-4177-9ecd-36ece2b038a7:
+  9be0e907-5cc2-451c-b457-be3358c1b4d6:
     tabs:
       -
         elementCondition: null
@@ -30,28 +30,13 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 7e9c6951-29d3-4c4d-905b-64c06c770377
+            uid: d9fb5230-7bf0-4713-b2e5-a3763cee477e
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 418401d4-f08e-47eb-a216-719e3d8f4ccb
-            handle: heroTitle
-            includeInCards: true
-            instructions: null
-            label: 'Hero Title'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 2d611c9f-ce5d-4fb3-89b7-6cbbac684b4a
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: f90a85bd-91b2-462b-acb4-8f265ded647e # Copy
+            fieldUid: 7bf7da79-8f7d-4a1b-8129-121b24c0d99b # Hero - Standard Hero - Image
             handle: null
             includeInCards: false
             instructions: null
@@ -60,17 +45,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7f686875-6d36-495e-a293-8733c8130d17
+            uid: e55be1a7-e5f5-4dd9-ab8f-20059e00de10
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: eaada003-5ead-470a-9054-8417d845e9be
+        uid: 573e7c5c-3f4a-4007-abac-659fb790ec6d
         userCondition: null
-handle: basicHero
+handle: heroImage
 hasTitleField: false
 icon: ''
-name: 'Basic Hero'
+name: HeroImage
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: ''
