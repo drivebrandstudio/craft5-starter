@@ -2,21 +2,28 @@
 {% extends '_blocks/_layout' %}
 
 {% block templateComment %}
-  {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+  {{ craft.app.config.general.devMode
+    ? ('<!-- Template: ' ~ _self ~ ' -->')|raw }}
 {% endblock %}
 
 {# section background #}
 {% set background = 'bg-gray-100' %}
 
 {% block body %}
+  <!-- /.flex flex-row -->
 
-  <div class="flex flex-col items-center justify-center gap-8">
-    {% if block.sectionTitle|length %}
-      <h2>{{ block.sectionTitle }}</h2>
-    {% endif %}
-      {{ block.button.getLink({
-        class: 'btn',
-      }) }}
-  </div><!-- /.flex flex-row -->
-
+  <section class="bg-indigo-50 border-y border-indigo-100">
+    <div class="max-w-7xl px-4 sm:px-6 md:px-8 mx-auto lg:flex lg:items-center lg:justify-between lg:px-8 py-12 sm:py-24">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-gray-900">
+        {{ block.sectionTitle }}
+      </h2>
+      <div class="mt-6 flex space-x-8 items-center">
+        {{
+          block.button.getLink({
+            class: 'btn inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none ring-2 ring-offset-2 ring-transparent ring-offset-transparent disabled:bg-gray-400 appearance-none text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-white !px-6 !shadow-lg'
+          })
+        }}
+      </div>
+    </div>
+  </section>
 {% endblock %}

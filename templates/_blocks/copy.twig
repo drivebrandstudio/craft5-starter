@@ -2,19 +2,26 @@
 {% extends '_blocks/_layout' %}
 
 {% block templateComment %}
-  {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+  {{ craft.app.config.general.devMode
+    ? ('<!-- Template: ' ~ _self ~ ' -->')|raw }}
 {% endblock %}
 
 {# section background #}
 {% set background = 'bg-gray-50' %}
 
 {% block body %}
-
-  {% if block.sectionTitle|length %}
-    <h2 class="@lg:underline">{{ block.sectionTitle }}</h2>
-  {% endif %}
-  <div class="w-full prose">
-    {{ block.copy }}
-  </div><!-- /.w-full -->
-
+  <section>
+    <div class="flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
+        <div class="w-full mx-auto">
+          <h2>
+            {{ block.sectionTitle }}
+          </h2>
+          <p>
+            {{ block.copy }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
