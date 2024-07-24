@@ -1,11 +1,12 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 4116f227-348c-4509-bc7a-6767a28fd40c # Contact Page
   - bb838d9b-476f-487c-8cc2-8e01b9423d92 # Pages
-  - e3dea9df-426f-43a5-96fd-927882533aa9 # News Listing
   - ea7fe716-adee-4200-a8ca-15362418cd97 # Home
+  - e3dea9df-426f-43a5-96fd-927882533aa9 # News Listing
+  - 4116f227-348c-4509-bc7a-6767a28fd40c # Contact Page
 handle: pages
+maxAuthors: 1
 name: Pages
 previewTargets:
   -
@@ -16,6 +17,17 @@ previewTargets:
       -
         - urlFormat
         - '{url}'
+      -
+        - refresh
+        - '1'
+  -
+    __assoc__:
+      -
+        - label
+        - local
+      -
+        - urlFormat
+        - 'http://localhost:3000/preview/api?entryUid={cannonicalUid}'
       -
         - refresh
         - '1'
