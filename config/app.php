@@ -17,8 +17,9 @@
  * your config/ folder, alongside this one.
  */
 
- use craft\helpers\App;
+use craft\helpers\App;
+use modules\revalidate\Revalidate;
 
- return [
-     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+return [
+    'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS', 'modules' => ['revalidate' => Revalidate::class], 'bootstrap' => ['revalidate'],
  ];

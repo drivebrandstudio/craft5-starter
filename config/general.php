@@ -32,6 +32,9 @@ return [
       // prevent /cpresources/ path showing up on the front end
       'generateTransformsBeforePageLoad' => true,
 
+      'headlessMode' => true,
+
+
       // Base site URL
       'devMode' => false,
       'allowAdminChanges' => true,
