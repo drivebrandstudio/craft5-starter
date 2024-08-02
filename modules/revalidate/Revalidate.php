@@ -44,6 +44,7 @@ class Revalidate extends BaseModule
         $url = 'https://www.example.drivedev.net/api/revalidate?uri=';
 
         $url .= urlencode($uri);
+        $url .= '&secret=secretsecret123';
 
         try {
             $response = $client->post($url);
