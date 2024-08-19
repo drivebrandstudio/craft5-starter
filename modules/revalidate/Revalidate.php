@@ -53,7 +53,7 @@ class RevalidateJob extends BaseJob
     public function execute($queue): void
     {
         $client = new Client();
-        $url = 'https://www.cannon-ui.example.drivedev.net/api/revalidate?uri=';
+        $url = 'https://www.[your_website].com/api/revalidate?uri=';
 
         $url .= urlencode($this->uri);
         $url .= '&secret=secretsecret123';
